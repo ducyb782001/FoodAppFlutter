@@ -3,9 +3,14 @@ import 'package:foodapp/models/food.dart';
 
 class DetailFoodPage extends StatelessWidget {
   Food? food;
+  static const String routeName = '/DetailFoodsPage';
   DetailFoodPage({this.food});
   @override
   Widget build(BuildContext context) {
+    Map<dynamic, dynamic>? arguments =
+        ModalRoute.of(context)!.settings.arguments as Map?;
+    food = arguments!['detailFood'];
+
     print('Ingredients: ${food!.ingredients}');
     // TODO: implement build
     return Scaffold(

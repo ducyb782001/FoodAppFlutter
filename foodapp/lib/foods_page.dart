@@ -30,8 +30,10 @@ class FoodsPage extends StatelessWidget {
                     Food food = foods[index];
                     return InkWell(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => DetailFoodPage(food: food)));
+                        // Navigator.of(context).push(MaterialPageRoute(
+                        //     builder: (context) => DetailFoodPage(food: food)));
+                        Navigator.pushNamed(context, DetailFoodPage.routeName,
+                            arguments: {'detailFood': food});
                       },
                       child: Stack(children: <Widget>[
                         Container(
