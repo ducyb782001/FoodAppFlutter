@@ -5,9 +5,8 @@ import 'dart:convert';
 Future<List<Comment>> getCommentsFromAPi() async {
   final url = "https://jsonplaceholder.typicode.com/comments";
   final http.Client httpClient = http.Client();
-  List<Comment> listShow;
   try {
-    final response = await httpClient.get(url);
+    final response = await httpClient.get(Uri.parse(url));
     print('something');
     if (response.statusCode == 200) {
       final responseData = json.decode(response.body) as List;
@@ -20,5 +19,8 @@ Future<List<Comment>> getCommentsFromAPi() async {
       });
       print('Break point here');
     }
-  } catch (exception) {}
+  } catch (exception) {
+    print('Exception: $exception');
+  }
+  return [];
 }
